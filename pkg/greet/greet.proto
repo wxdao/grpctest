@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package greet;
+
+service GreetService {
+    rpc Echo(EchoRequest) returns (EchoReply);
+    rpc Tick(TickRequest) returns (stream TickReply);
+}
+
+
+message EchoRequest {
+    string message = 1;
+}
+
+message EchoReply {
+    string message = 1;
+}
+
+
+message TickRequest {
+    int64 count = 1;
+    int64 interval = 2;
+}
+
+message TickReply {
+    int64 timestamp = 1;
+}
