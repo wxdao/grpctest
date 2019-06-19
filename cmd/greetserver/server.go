@@ -32,6 +32,7 @@ func (s *greetServiceServer) Tick(req *greet.TickRequest, stream greet.GreetServ
 		err := stream.Send(&reply)
 		if err != nil {
 			log.Println("Tick stream err:", err)
+			break
 		}
 		log.Println("Tick stream sended. reply:", reply, "in-metadata:", md)
 		time.Sleep(time.Duration(req.Interval))
